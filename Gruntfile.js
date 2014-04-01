@@ -34,11 +34,11 @@ module.exports = function (grunt) {
 
         watch: {
             compass: {
-                files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+                files: ['<%= yeoman.app %>/css/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
             },
             styles: {
-                files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
+                files: ['<%= yeoman.app %>/css/{,*/}*.css'],
                 tasks: ['copy:styles', 'autoprefixer']
             },
             livereload: {
@@ -47,8 +47,8 @@ module.exports = function (grunt) {
                 },
                 files: [
                     '<%= yeoman.app %>/*.html',
-                    '.tmp/styles/{,*/}*.css',
-                    '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
+                    '.tmp/css/{,*/}*.css',
+                    '{.tmp,<%= yeoman.app %>}/js/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
             }
@@ -104,8 +104,8 @@ module.exports = function (grunt) {
             },
             all: [
                 'Gruntfile.js',
-                '<%= yeoman.app %>/scripts/{,*/}*.js',
-                '!<%= yeoman.app %>/scripts/vendor/*',
+                '<%= yeoman.app %>/js/{,*/}*.js',
+                '!<%= yeoman.app %>/lib/*',
                 'test/spec/{,*/}*.js'
             ]
         },
@@ -133,9 +133,9 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '.tmp/styles/',
+                    cwd: '.tmp/css/',
                     src: '{,*/}*.css',
-                    dest: '.tmp/styles/'
+                    dest: '.tmp/css/'
                 }]
             }
         },
@@ -160,10 +160,10 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     src: [
-                        '<%= yeoman.dist %>/scripts/{,*/}*.js',
-                        '<%= yeoman.dist %>/styles/{,*/}*.css',
+                        '<%= yeoman.dist %>/js/{,*/}*.js',
+                        '<%= yeoman.dist %>/css/{,*/}*.css',
                         '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-                        '<%= yeoman.dist %>/styles/fonts/{,*/}*.*'
+                        '<%= yeoman.dist %>/css/fonts/{,*/}*.*'
                     ]
                 }
             }
@@ -179,7 +179,7 @@ module.exports = function (grunt) {
                 dirs: ['<%= yeoman.dist %>']
             },
             html: ['<%= yeoman.dist %>/{,*/}*.html'],
-            css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
+            css: ['<%= yeoman.dist %>/css/{,*/}*.css']
         },
         imagemin: {
             dist: {
@@ -206,13 +206,13 @@ module.exports = function (grunt) {
             // blocks for your CSS. By default, the Usemin block from your
             // `index.html` will take care of minification, e.g.
             //
-            //     <!-- build:css({.tmp,app}) styles/main.css -->
+            //     <!-- build:css({.tmp,app}) css/main.css -->
             //
             //dist: {
             //     files: {
-            //        '<%= yeoman.dist %>/styles/main.css': [
-            //             '.tmp/styles/{,*/}*.css',
-            //             '<%= yeoman.app %>/styles/{,*/}*.css'
+            //        '<%= yeoman.dist %>/css/main.css': [
+            //             '.tmp/css/{,*/}*.css',
+            //             '<%= yeoman.app %>/css/{,*/}*.css'
             //        ]
             //     }
             //}
@@ -251,15 +251,15 @@ module.exports = function (grunt) {
                         '.htaccess',
                         'images/{,*/}*.{webp,gif}',
 						'res/**',
-                        'styles/fonts/{,*/}*.*'
+                        'css/fonts/{,*/}*.*'
                     ]
                 }]
             },
             styles: {
                 expand: true,
                 dot: true,
-                cwd: '<%= yeoman.app %>/styles',
-                dest: '.tmp/styles/',
+                cwd: '<%= yeoman.app %>/css',
+                dest: '.tmp/css/',
                 src: '{,*/}*.css'
             }
         },
